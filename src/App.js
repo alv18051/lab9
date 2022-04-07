@@ -21,6 +21,7 @@ function App(){
     const [turnos, seTu] = useState(0)
     const [accion1, setAccion1] = useState(null)
     const [accion2, setAccion2] = useState(null)
+    const [deshabilitado, setDeshabilitado] = useState(false)
 
     const mezclar = () => {
 
@@ -43,7 +44,9 @@ function App(){
     }
 
     useEffect(()=>{
+        
         if(accion1 != null && accion2 != null){
+            setDeshabilitado(true) 
             if(accion1.src === accion2.src){
                 seTa(tarjetaPrev => {
                     return tarjetaPrev.map( tarjeta=> {
@@ -55,10 +58,10 @@ function App(){
                     })
                 })
                 console.log('pareja')
-                setTimeout(() => reset(), 2000)
+                setTimeout(() => reset(), 750)
             }else{
                 console.log('dispareja')
-                setTimeout(() => reset(), 2000)
+                setTimeout(() => reset(), 750)
             }
         }
 
@@ -70,23 +73,25 @@ function App(){
         setAccion1(null)
         setAccion2(null)
         seTu(prevTurnos => prevTurnos + 1)
+        setDeshabilitado(false)
     }
 
     
     return(
         <div className='App'>
             <h1>Lab 09</h1>
-            <button onClick={mezclar}>Jugar</button> 
+            <button onClick={mezclar}>Nuevo Juego</button> 
+            <h2>turnos : {turnos}</h2> 
             <div className='tablero'>
                 {tarjetas.map(tarjeta => (
                     <SingleTarjeta 
-                        key = {tarjeta.id} 
-                        tarjeta = {tarjeta} 
-                        manejoAccion = {manejoAccion} 
+                        key = {tarjeta.id} tarjeta = {tarjeta} manejoAccion = {manejoAccion} 
                         voltear = {tarjeta === accion1 || tarjeta === accion2 || tarjeta.parejas} 
+                        deshabilitado = {deshabilitado}
                     />
                 ))}    
-            </div>    
+            </div> 
+              
         </div>
           
 

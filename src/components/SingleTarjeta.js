@@ -1,9 +1,12 @@
 import './SingleTarjeta.css'
 
-export default function singleTarjeta({ tarjeta, manejoAccion, voltear }){
+export default function singleTarjeta({ tarjeta, manejoAccion, voltear, deshabilitado }){
 
     const manejo = () => {
-        manejoAccion(tarjeta)
+        if(!deshabilitado){
+            manejoAccion(tarjeta)
+        }
+       
     }
     return(
         <div className = 'tarjeta'>
