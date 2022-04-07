@@ -1,0 +1,41 @@
+.tarjeta {
+    position: relative;
+}
+
+.tarjeta img{
+    width: 100%;
+    display: block;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.tarjeta .enfrente{
+    transform: rotateY(00deg);
+    transition: all ease-in 0.2s;
+    position: absolute;
+}
+.voltear .enfrente {
+    transform: rotateY(90deg);
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+}
+
+.tarjeta .atras{
+    
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+}
+
+.voltear .atras {
+    transform: rotateY(180deg);
+    transition-delay: 0s;
+    
+}
+
+
+
+
+
+
+
+
