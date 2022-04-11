@@ -1,23 +1,29 @@
-import { React } from 'react'
+import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Component } from 'react'
 import { render } from 'react-dom'
 import './App.css'
 import SingleTarjeta from './SingleTarjeta'
-
-
-
+import img1y from'../img/img1y.jpg'
+import img2y from'../img/img2y.png'
+import img3y from'../img/img3y.jpg'
+import img4y from'../img/img4.jpg'
+import img5y from'../img/img5y.jpg'
+import img6y from'../img/img6y.jpg'
+import img7y from'../img/img7y.jpg'
+import img8y from'../img/img8y.jpg'
+import back from'../img/back.png'
 
 const imagenes = [
-    {"src": '/img/img1y.jpg', parejas : false},
-    {"src": '/img/img2y.png', parejas : false},
-    {"src": '/img/img3y.jpg', parejas : false},
-    {"src": '/img/img4.jpg' , parejas : false},
-    {"src": '/img/img5y.jpg', parejas : false},
-    {"src": '/img/img6y.jpg', parejas : false},
-    {"src": '/img/img7y.jpg', parejas : false},
-    {"src": '/img/img8y.jpg', parejas : false}    
+    {"src": img1y, parejas : false},
+    {"src": img2y, parejas : false},
+    {"src": img3y, parejas : false},
+    {"src": img4y, parejas : false},
+    {"src": img5y, parejas : false},
+    {"src": img6y, parejas : false},
+    {"src": img7y, parejas : false},
+    {"src": img8y, parejas : false}    
 
 ]
 
@@ -34,7 +40,7 @@ function App(){
 
         const mezcladas = [...imagenes, ...imagenes]
             .sort (() => Math.random() - 0.5)
-            .map((tarjeta) => ({...tarjeta, id: Math.random}))
+            .map((tarjeta, index) => ({...tarjeta, id: index }))
         seTa(mezcladas)
         seTu(0)
 

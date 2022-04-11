@@ -7,7 +7,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "/dist"),
+    path: path.resolve(__dirname, "dist"),
     filename :  'index_bundle.js'
   },
   plugins: [
@@ -38,7 +38,7 @@ module.exports = {
         test: /\.(png|jpg|gif|mp4)$/i,
         loader: 'file-loader',
         options: {
-          outputPath: 'images',
+          outputPath: 'img',
         },
       },
     ],
