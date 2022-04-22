@@ -1,15 +1,15 @@
 /* eslint-disable no-use-before-define */
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import SingleTarjeta from "./SingleTarjeta";
-import img1y from "../img/img1y.jpg";
-import img3y from "../img/img3y.jpg";
-import img2y from "../img/img2y.png";
-import img4y from "../img/img4.jpg";
-import img5y from "../img/img5y.jpg";
-import img6y from "../img/img6y.jpg";
-import img7y from "../img/img7y.jpg";
-import img8y from "../img/img8y.jpg";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import SingleTarjeta from './SingleTarjeta';
+import img1y from '../img/img1y.jpg';
+import img3y from '../img/img3y.jpg';
+import img2y from '../img/img2y.png';
+import img4y from '../img/img4.jpg';
+import img5y from '../img/img5y.jpg';
+import img6y from '../img/img6y.jpg';
+import img7y from '../img/img7y.jpg';
+import img8y from '../img/img8y.jpg';
 
 const imagenes = [
   { src: img1y, parejas: false },
@@ -28,7 +28,6 @@ function App() {
   const [accion1, setAccion1] = useState(null);
   const [accion2, setAccion2] = useState(null);
   const [deshabilitado, setDeshabilitado] = useState(false);
-  const [fin, setFin] = useState(false);
 
   const mezclar = () => {
     const mezcladas = [...imagenes, ...imagenes]
@@ -50,22 +49,18 @@ function App() {
     if (accion1 != null && accion2 != null) {
       setDeshabilitado(true);
       if (accion1.src === accion2.src) {
-        seTa((tarjetaPrev) =>
-          tarjetaPrev.map((tarjeta) => {
-            if (tarjeta.src === accion2.src) {
-              return { ...tarjeta, parejas: true };
-            }
-            return tarjeta;
-          })
-        );
+        seTa((tarjetaPrev) => tarjetaPrev.map((tarjeta) => {
+          if (tarjeta.src === accion2.src) {
+            return { ...tarjeta, parejas: true };
+          }
+          return tarjeta;
+        }));
         setTimeout(() => reset(), 900);
       } else {
         setTimeout(() => reset(), 900);
       }
     }
   }, [accion1, accion2]);
-
-  console.log(tarjetas);
 
   const reset = () => {
     setAccion1(null);
@@ -78,7 +73,11 @@ function App() {
     <div className="App">
       <h1>Lab 09</h1>
       <button onClick={mezclar}>Nuevo Juego</button>
-      <h2>turnos : {turnos}</h2>
+      <h2>
+        turnos :
+        {' '}
+        {turnos}
+      </h2>
       <div className="tablero">
         {tarjetas.map((tarjeta) => (
           <SingleTarjeta
